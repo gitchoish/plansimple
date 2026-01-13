@@ -1,0 +1,10 @@
+﻿# BLOCK EVERYTHING by default (critical safety)
+*
+
+# Allow only this project folder
+!Desktop/
+!Desktop/new/
+!Desktop/new/**
+
+# Always keep .gitignore tracked
+!.gitignore
