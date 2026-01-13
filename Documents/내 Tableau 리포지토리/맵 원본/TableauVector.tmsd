@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<mapsource-defaults source-platform='win' version='18.1'>
+  <!-- build 20233.23.1017.0948 -->
+  <style>
+    <style-rule element='map'>
+      <format attr='washout' value='0.0' />
+    </style-rule>
+  </style>
+</mapsource-defaults>

@@ -1,0 +1,16 @@
+{
+  "name": "plansimple",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "A simple planning tool built with Astro",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "latest",
+    "@astrojs/tailwind": "latest",
+    "tailwindcss": "latest"
+  }
+}
