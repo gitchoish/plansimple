@@ -1,0 +1,6 @@
+{
+  "build": {
+    "command": "npm run build",
+    "watch_paths": ["src/**/*.{ts,tsx,js,jsx,astro}"]
+  }
+}
