@@ -1,5 +1,2 @@
-# This is a placeholder ads.txt file for Google AdSense
-# Replace the placeholder with your actual AdSense publisher ID
-
-# Google AdSense
-google.com, pub-xxxxxxxxxxxxxxxx, DIRECT, f08c47fec0942fa0
+# Google AdSense configuration
+google.com, ca-pub-7686325833774925, DIRECT, f08c47fec0942fa0
