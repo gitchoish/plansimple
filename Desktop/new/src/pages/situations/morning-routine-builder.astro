@@ -1,0 +1,137 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RoutineBuilder from '../../components/RoutineBuilder.astro';
+---
+
+<Layout 
+  title="Morning Routine Builder - SolveSteps" 
+  description="Design and time your ideal morning routine with examples to get you started."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+      <a href="/situations" class="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 inline-block">← Back to All Situations</a>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Morning Routine Builder</h1>
+      <p class="text-xl text-gray-600">Design and time your ideal morning routine. Start your day intentionally.</p>
+    </div>
+
+    <div class="bg-yellow-50 p-6 rounded-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Morning Routines Matter</h2>
+      <p class="text-gray-700">
+        Your morning sets the tone for your entire day. A good morning routine gives you momentum, reduces stress, and helps you feel in control. The best routine is one you can actually maintain—start simple and build from there.
+      </p>
+    </div>
+
+    <RoutineBuilder situationId="morning-routine" />
+
+    <div class="mt-12 space-y-8">
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Example Routines</h2>
+        <div class="space-y-4">
+          <div class="bg-white p-6 border-l-4 border-blue-600 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-3">⚡ Quick Morning (30 mins)</h3>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>• Wake up, drink water (2 min)</li>
+              <li>• Quick shower (10 min)</li>
+              <li>• Get dressed (5 min)</li>
+              <li>• Breakfast (10 min)</li>
+              <li>• Leave (1 min)</li>
+            </ul>
+            <p class="text-xs text-gray-600 mt-3">Best for: Busy weekdays, work commute</p>
+          </div>
+
+          <div class="bg-white p-6 border-l-4 border-green-600 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-3">🧘 Wellness Morning (60 mins)</h3>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>• Wake up, hydrate, meditation (5 min)</li>
+              <li>• Exercise/yoga (20 min)</li>
+              <li>• Shower (15 min)</li>
+              <li>• Get dressed (5 min)</li>
+              <li>• Breakfast & coffee (10 min)</li>
+              <li>• Read/journal (5 min)</li>
+            </ul>
+            <p class="text-xs text-gray-600 mt-3">Best for: Weekends, when you have time</p>
+          </div>
+
+          <div class="bg-white p-6 border-l-4 border-orange-600 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-3">📚 Productive Morning (45 mins)</h3>
+            <ul class="text-sm text-gray-700 space-y-2">
+              <li>• Wake up, drink water (2 min)</li>
+              <li>• Get ready (quick shower, dress) (15 min)</li>
+              <li>• Breakfast (10 min)</li>
+              <li>• Review priorities for day (5 min)</li>
+              <li>• Work on 1 important task (10 min)</li>
+              <li>• Leave for work/start day (3 min)</li>
+            </ul>
+            <p class="text-xs text-gray-600 mt-3">Best for: Students, entrepreneurs, goal-focused people</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Tips for Success</h2>
+        <div class="space-y-3">
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">⏰ Set a Consistent Wake Time</h3>
+            <p class="text-sm text-gray-700">Even on weekends. Your body adapts to consistency. Better sleep + better mornings.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">🛏️ Prepare the Night Before</h3>
+            <p class="text-sm text-gray-700">Lay out clothes, prep breakfast, set the coffee maker. Less friction = more likely to stick.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">⏳ Start Small</h3>
+            <p class="text-sm text-gray-700">Don't try a 2-hour routine if you're a beginner. Start with 20 mins. Add things gradually.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">📱 No Phone for 30 Minutes</h3>
+            <p class="text-sm text-gray-700">Check email/messages AFTER your routine. This protects your mental space from the day's chaos.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">💧 Hydrate First</h3>
+            <p class="text-sm text-gray-700">Drink a full glass of water before coffee. Your body is dehydrated after sleep.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">🌅 Get Sunlight</h3>
+            <p class="text-sm text-gray-700">Even 5 minutes of natural light sets your circadian rhythm and improves mood.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Common Morning Mistakes</h2>
+        <div class="space-y-2 text-gray-700">
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span><strong>Hitting snooze:</strong> One more time = late start + rushed energy for whole day</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span><strong>Checking phone immediately:</strong> Emails/messages hijack your mental focus before you start</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span><strong>Skipping breakfast:</strong> Your brain needs fuel. Even a quick snack helps</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span><strong>A routine too ambitious:</strong> You won't stick to 2 hours if you've never done 30 mins</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span><strong>Not sleeping enough:</strong> No routine fixes exhaustion. Get 7-9 hours the night before</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+        <h3 class="font-semibold text-gray-900 mb-2">🎯 Implementation Challenge</h3>
+        <p class="text-sm text-gray-700 mb-4">
+          Pick ONE element from the routine builder above. Do it for 3 days. Then add the next element. Building habits gradually is more sustainable than trying to change everything overnight.
+        </p>
+        <p class="text-sm text-gray-700">
+          Your morning routine should feel energizing, not stressful. If it starts feeling rushed or burdensome, simplify it.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

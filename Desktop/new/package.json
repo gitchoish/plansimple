@@ -1,16 +1,20 @@
 {
-  "name": "plansimple",
+  "name": "solvesteps",
   "type": "module",
-  "version": "0.0.1",
-  "description": "A simple planning tool built with Astro",
+  "version": "1.0.0",
+  "description": "Interactive tools that help users solve real-life situations step by step",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "dependencies": {
     "astro": "latest",
     "@astrojs/tailwind": "latest",
     "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest"
   }
 }

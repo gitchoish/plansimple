@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WeeklyPlanner from '../../components/WeeklyPlanner.astro';
+---
+
+<Layout 
+  title="Budget Reset - SolveSteps" 
+  description="Step-by-step guide to getting back on track with your finances."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+      <a href="/situations" class="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 inline-block">← Back to All Situations</a>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Budget Reset</h1>
+      <p class="text-xl text-gray-600">Get back on track with your finances in practical steps.</p>
+    </div>
+
+    <div class="bg-orange-50 p-6 rounded-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Reset Your Financial Health</h2>
+      <p class="text-gray-700 mb-3">
+        Whether you've overspent, lost track of expenses, or want to start fresh, a budget reset helps you understand where your money goes and make intentional choices about spending.
+      </p>
+      <p class="text-gray-700">
+        <strong>⚠️ Disclaimer:</strong> This tool provides general budgeting guidance only. For serious financial concerns, student loans, debt management, or investment advice, please consult with a certified financial advisor.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 1: Assess Your Current Situation</h2>
+        <div class="bg-white p-6 border-l-4 border-blue-600 rounded-lg">
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex gap-3">
+              <span class="font-bold text-blue-600">1.</span>
+              <span>Gather your last 3 months of bank statements</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-blue-600">2.</span>
+              <span>List all your income sources and amounts</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-blue-600">3.</span>
+              <span>Calculate your average monthly income</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-blue-600">4.</span>
+              <span>Categorize your spending (housing, food, transport, etc.)</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-blue-600">5.</span>
+              <span>Calculate total spending by category</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 2: Identify Problem Areas</h2>
+        <p class="text-gray-700 mb-4">
+          Look at your spending by category. Which ones are higher than you expected? Which are essential vs. discretionary?
+        </p>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-red-50 p-4 rounded">
+            <h3 class="font-semibold text-gray-900 mb-2">Essential Expenses</h3>
+            <ul class="text-sm text-gray-700 space-y-1">
+              <li>• Rent/mortgage</li>
+              <li>• Utilities</li>
+              <li>• Groceries</li>
+              <li>• Insurance</li>
+              <li>• Transportation</li>
+            </ul>
+          </div>
+          <div class="bg-yellow-50 p-4 rounded">
+            <h3 class="font-semibold text-gray-900 mb-2">Discretionary Spending</h3>
+            <ul class="text-sm text-gray-700 space-y-1">
+              <li>• Dining out</li>
+              <li>• Entertainment</li>
+              <li>• Subscriptions</li>
+              <li>• Shopping</li>
+              <li>• Travel</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 3: Create Your Budget</h2>
+        <p class="text-gray-700 mb-4">
+          Use the weekly planner below to plan your spending for the next week. Set targets for each category and track where your money actually goes.
+        </p>
+        <WeeklyPlanner situationId="budget-reset" />
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Common Budget Categories</h2>
+        <div class="space-y-3 text-gray-700">
+          <div class="flex gap-3">
+            <span class="font-bold text-orange-600 w-24">🏠 Housing:</span>
+            <span>30-35% of income (rent/mortgage, property tax, maintenance)</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="font-bold text-orange-600 w-24">🍔 Food:</span>
+            <span>10-15% of income (groceries, dining out)</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="font-bold text-orange-600 w-24">🚗 Transport:</span>
+            <span>10-15% of income (car payment, gas, insurance, transit)</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="font-bold text-orange-600 w-24">💊 Insurance:</span>
+            <span>10-25% of income (health, auto, renter's, life)</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="font-bold text-orange-600 w-24">💰 Savings:</span>
+            <span>10-20% of income (emergency fund, retirement)</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="font-bold text-orange-600 w-24">🎉 Discretionary:</span>
+            <span>5-10% of income (entertainment, hobbies)</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Quick Wins to Cut Spending</h2>
+        <div class="space-y-3">
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-2">Cancel Unused Subscriptions</h3>
+            <p class="text-sm text-gray-700">Review all subscriptions (streaming, apps, memberships). Cancel ones you don't use. Could save $50-200/month.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-2">Meal Plan to Reduce Dining Out</h3>
+            <p class="text-sm text-gray-700">Planning meals prevents impulse fast food. Cooking at home costs 60-70% less than eating out.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-2">Review Recurring Bills</h3>
+            <p class="text-sm text-gray-700">Call your insurance, phone, and internet providers for better rates. Take 30 minutes, save $20-50/month.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-2">Use Cash or Envelopes</h3>
+            <p class="text-sm text-gray-700">Limiting to physical cash makes you more aware of discretionary spending. Try it for one month.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-yellow-50 border border-yellow-200 p-6 rounded-lg">
+        <h3 class="font-semibold text-gray-900 mb-2">⚠️ When to Seek Professional Help</h3>
+        <p class="text-sm text-gray-700 mb-3">
+          This guide is for general budgeting. For serious financial issues, consider consulting a professional:
+        </p>
+        <ul class="text-sm text-gray-700 space-y-2">
+          <li>• <strong>Credit Counselor:</strong> If you're struggling with debt</li>
+          <li>• <strong>Financial Advisor:</strong> For investment and retirement planning</li>
+          <li>• <strong>Tax Professional:</strong> For complex tax situations</li>
+          <li>• <strong>Nonprofit Credit Counseling:</strong> NFCC.org (many services are free)</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</Layout>

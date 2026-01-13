@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SituationChecklist from '../../components/SituationChecklist.astro';
+---
+
+<Layout 
+  title="Weekend Home Reset - SolveSteps" 
+  description="Reset your home for the week ahead with Saturday and Sunday task lists."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+      <a href="/situations" class="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 inline-block">← Back to All Situations</a>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Weekend Home Reset</h1>
+      <p class="text-xl text-gray-600">Reset your home for the week ahead. Start Monday in a clean, organized space.</p>
+    </div>
+
+    <div class="bg-pink-50 p-6 rounded-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Weekend Reset Matters</h2>
+      <p class="text-gray-700">
+        Starting your week in a clean, organized home reduces stress and sets a positive tone. You don't need to spend all day on this—strategic tasks on Saturday and Sunday morning will get your home ready for the week.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">The Reset Checklist</h2>
+        <SituationChecklist 
+          title="Weekend Home Reset"
+          situationId="weekend-reset"
+          steps={[
+            "Saturday: Strip and wash all bed sheets",
+            "Saturday: Do laundry (towels, linens, clothes)",
+            "Saturday: Clean bathroom (toilet, sink, tub/shower, floor)",
+            "Saturday: Wipe down mirrors and glass",
+            "Saturday: Vacuum main living areas",
+            "Saturday: Wipe down kitchen counters and appliances",
+            "Saturday: Take out trash and recycling",
+            "Saturday: Meal prep for Sunday/Monday meals",
+            "Sunday: Fold and put away laundry",
+            "Sunday: Clean out refrigerator",
+            "Sunday: Tidy and declutter main living areas",
+            "Sunday: Water plants",
+            "Sunday: Do a quick final sweep (broom/vacuum)",
+            "Sunday: Wipe down entryway and high-touch surfaces",
+            "Sunday: Set out clothes for Monday morning"
+          ]}
+        />
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Saturday Game Plan</h2>
+        <div class="space-y-3">
+          <div class="flex gap-4">
+            <span class="flex-shrink-0 text-xl">📋</span>
+            <div>
+              <h3 class="font-semibold text-gray-900">Focus: Heavy Cleaning</h3>
+              <p class="text-sm text-gray-700">This is when you tackle the bigger jobs: bathroom deep clean, laundry, kitchen deep clean.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="flex-shrink-0 text-xl">⏱️</span>
+            <div>
+              <h3 class="font-semibold text-gray-900">Time: 2-3 hours</h3>
+              <p class="text-sm text-gray-700">Break it into 30-45 min chunks with short breaks. More efficient than marathon cleaning.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="flex-shrink-0 text-xl">🎵</span>
+            <div>
+              <h3 class="font-semibold text-gray-900">Make it Enjoyable</h3>
+              <p class="text-sm text-gray-700">Put on music, a podcast, or an audiobook. Makes cleaning less boring and fly by faster.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Sunday Game Plan</h2>
+        <div class="space-y-3">
+          <div class="flex gap-4">
+            <span class="flex-shrink-0 text-xl">📋</span>
+            <div>
+              <h3 class="font-semibold text-gray-900">Focus: Tidying & Organizing</h3>
+              <p class="text-sm text-gray-700">Put away the laundry from Saturday, organize spaces, quick final touches.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="flex-shrink-0 text-xl">⏱️</span>
+            <div>
+              <h3 class="font-semibold text-gray-900">Time: 1-1.5 hours</h3>
+              <p class="text-sm text-gray-700">Do this Sunday morning so you still have afternoon/evening to relax before Monday.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="flex-shrink-0 text-xl">😌</span>
+            <div>
+              <h3 class="font-semibold text-gray-900">Relax After</h3>
+              <p class="text-sm text-gray-700">Finish by Sunday lunch/afternoon. Spend the rest of the day relaxing and recharging for the week.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">The Reality Check</h2>
+        <div class="bg-white p-6 border-l-4 border-orange-600 rounded-lg">
+          <p class="text-gray-700 mb-3">
+            <strong>Busy weekend?</strong> Do what you can. This is a template, not a requirement. Some weeks you'll do the full reset, some weeks you'll do a lighter version. That's okay.
+          </p>
+          <p class="text-gray-700">
+            <strong>Key priorities if time is limited:</strong> Laundry, kitchen, bathroom, vacuum. These make the biggest impact on how your space feels.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Pro Tips</h2>
+        <div class="space-y-3">
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">🧺 Sunday Laundry Rule</h3>
+            <p class="text-sm text-gray-700">Do at least one load Sunday night so it's ready Monday. Fold while watching TV.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">🍳 Meal Prep Saturday</h3>
+            <p class="text-sm text-gray-700">While cleaning, prep 2-3 meals for the week. Bonus: less cooking stress Mon-Wed.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">👕 Prep Your Week</h3>
+            <p class="text-sm text-gray-700">Sunday evening: lay out Monday's clothes, pack bags, prep for the week ahead.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">🧹 Delegate</h3>
+            <p class="text-sm text-gray-700">Living with others? Assign tasks. Saturday reset takes 1 hour with 3 people vs. 3 hours solo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+        <h3 class="font-semibold text-gray-900 mb-2">✨ The Benefit</h3>
+        <p class="text-sm text-gray-700">
+          Imagine Monday morning: clean sheets, tidy spaces, organized home. You walk out the door calm, not stressed. That one reset keeps your week better all the way through. You got this.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

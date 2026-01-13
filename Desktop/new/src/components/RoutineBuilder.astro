@@ -1,0 +1,244 @@
+---
+interface Props {
+  situationId: string;
+}
+
+const { situationId } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md p-6 my-6">
+  <div class="flex items-center justify-between mb-6">
+    <h3 class="text-lg font-semibold text-gray-800">Custom Routine Builder</h3>
+    <button class="text-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded print:hidden" onclick="printRoutine()">
+      🖨️ Print
+    </button>
+  </div>
+
+  <div class="mb-6 space-y-4">
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-2">Routine Name</label>
+      <input 
+        type="text"
+        id={`routine-name-${situationId}`}
+        class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="e.g., Morning Routine"
+        onchange="saveRoutineData()"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm font-semibold text-gray-700 mb-2">Start Time</label>
+      <input 
+        type="time"
+        id={`routine-start-${situationId}`}
+        class="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onchange="saveRoutineData()"
+      />
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <div class="flex justify-between items-center mb-3">
+      <h4 class="font-semibold text-gray-700">Routine Steps</h4>
+      <button 
+        class="text-sm px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 print:hidden"
+        onclick="addRoutineStep()"
+      >
+        + Add Step
+      </button>
+    </div>
+
+    <div id={`routine-steps-${situationId}`} class="space-y-3">
+      <div class="flex items-end gap-2 routine-step">
+        <div class="flex-1">
+          <input 
+            type="text"
+            class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Step description"
+            onchange="saveRoutineData()"
+          />
+        </div>
+        <div class="w-20">
+          <input 
+            type="number"
+            class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="min"
+            min="1"
+            max="120"
+            onchange="saveRoutineData()"
+          />
+        </div>
+        <button class="px-2 py-2 text-red-600 hover:text-red-800 print:hidden" onclick="this.parentElement.remove(); saveRoutineData();">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 bg-green-50 rounded">
+    <p class="text-sm text-gray-700">
+      <strong>Total Time:</strong> <span id={`total-time-${situationId}`}>0</span> minutes
+    </p>
+  </div>
+
+  <div class="mt-4 flex gap-2 print:hidden">
+    <button 
+      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      onclick="downloadAsText()"
+    >
+      📥 Download Routine
+    </button>
+    <button 
+      class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+      onclick="resetRoutine()"
+    >
+      Reset
+    </button>
+  </div>
+</div>
+
+<script define:vars={{ situationId }}>
+  function addRoutineStep() {
+    const container = document.getElementById(`routine-steps-${situationId}`);
+    const step = document.createElement('div');
+    step.className = 'flex items-end gap-2 routine-step';
+    step.innerHTML = `
+      <div class="flex-1">
+        <input 
+          type="text"
+          class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Step description"
+          onchange="saveRoutineData()"
+        />
+      </div>
+      <div class="w-20">
+        <input 
+          type="number"
+          class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="min"
+          min="1"
+          max="120"
+          onchange="saveRoutineData()"
+        />
+      </div>
+      <button class="px-2 py-2 text-red-600 hover:text-red-800" onclick="this.parentElement.remove(); saveRoutineData();">✕</button>
+    `;
+    container.appendChild(step);
+  }
+
+  function saveRoutineData() {
+    const steps = [];
+    document.querySelectorAll(`#routine-steps-${situationId} .routine-step`).forEach(step => {
+      const inputs = step.querySelectorAll('input');
+      steps.push({
+        description: inputs[0].value,
+        duration: parseInt(inputs[1].value) || 0
+      });
+    });
+
+    const data = {
+      name: document.getElementById(`routine-name-${situationId}`).value,
+      startTime: document.getElementById(`routine-start-${situationId}`).value,
+      steps: steps
+    };
+
+    localStorage.setItem(`routine-${situationId}`, JSON.stringify(data));
+
+    // Update total time
+    const total = steps.reduce((sum, step) => sum + step.duration, 0);
+    document.getElementById(`total-time-${situationId}`).textContent = total;
+  }
+
+  function resetRoutine() {
+    if (confirm('Reset the routine builder?')) {
+      document.getElementById(`routine-name-${situationId}`).value = '';
+      document.getElementById(`routine-start-${situationId}`).value = '';
+      document.getElementById(`routine-steps-${situationId}`).innerHTML = `
+        <div class="flex items-end gap-2 routine-step">
+          <div class="flex-1">
+            <input 
+              type="text"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Step description"
+              onchange="saveRoutineData()"
+            />
+          </div>
+          <div class="w-20">
+            <input 
+              type="number"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="min"
+              min="1"
+              max="120"
+              onchange="saveRoutineData()"
+            />
+          </div>
+          <button class="px-2 py-2 text-red-600 hover:text-red-800" onclick="this.parentElement.remove(); saveRoutineData();">✕</button>
+        </div>
+      `;
+      localStorage.removeItem(`routine-${situationId}`);
+    }
+  }
+
+  function downloadAsText() {
+    const data = JSON.parse(localStorage.getItem(`routine-${situationId}`) || '{}');
+    let text = `${data.name || 'Routine'}\\n`;
+    text += `Start: ${data.startTime || 'Not set'}\\n\\n`;
+    let runningTime = 0;
+    data.steps?.forEach((step, i) => {
+      text += `${i + 1}. ${step.description} (${step.duration}min)\\n`;
+      runningTime += step.duration;
+    });
+    text += `\\nTotal Duration: ${runningTime} minutes`;
+
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'routine.txt';
+    a.click();
+  }
+
+  function printRoutine() {
+    window.print();
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem(`routine-${situationId}`);
+    if (saved) {
+      const data = JSON.parse(saved);
+      document.getElementById(`routine-name-${situationId}`).value = data.name || '';
+      document.getElementById(`routine-start-${situationId}`).value = data.startTime || '';
+      
+      const container = document.getElementById(`routine-steps-${situationId}`);
+      container.innerHTML = '';
+      data.steps?.forEach(step => {
+        const stepDiv = document.createElement('div');
+        stepDiv.className = 'flex items-end gap-2 routine-step';
+        stepDiv.innerHTML = `
+          <div class="flex-1">
+            <input 
+              type="text"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Step description"
+              value="${step.description}"
+              onchange="saveRoutineData()"
+            />
+          </div>
+          <div class="w-20">
+            <input 
+              type="number"
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="min"
+              value="${step.duration}"
+              min="1"
+              max="120"
+              onchange="saveRoutineData()"
+            />
+          </div>
+          <button class="px-2 py-2 text-red-600 hover:text-red-800" onclick="this.parentElement.remove(); saveRoutineData();">✕</button>
+        `;
+        container.appendChild(stepDiv);
+      });
+    }
+    saveRoutineData();
+  });
+</script>

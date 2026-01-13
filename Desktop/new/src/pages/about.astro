@@ -2,9 +2,94 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-  <main>
-    <h1>About</h1>
-    <p>PlanSimple - A planning tool</p>
-  </main>
+<Layout title="About SolveSteps" description="Learn about SolveSteps and our mission to help people solve real-life situations with practical, step-by-step tools.">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">About SolveSteps</h1>
+
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          SolveSteps was created to help people navigate real-life challenges with confidence and clarity. We believe that everyone has the ability to solve their problems—they just need the right tools and guidance.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Whether you're moving apartments, overwhelmed at work, trying to build better habits, or tackling a big project, our interactive tools help you break down complex situations into manageable steps.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">How We Help</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          We provide three core tools designed to work together:
+        </p>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex gap-3">
+            <span class="text-blue-600 font-bold">☑️</span>
+            <div>
+              <strong>Checklist Builder:</strong> Break situations into actionable steps you can track and complete.
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-600 font-bold">📅</span>
+            <div>
+              <strong>Weekly Planner:</strong> Organize your week with focus areas and daily actions.
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-600 font-bold">🔄</span>
+            <div>
+              <strong>Routine Builder:</strong> Design and time custom routines that fit your life.
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Principles</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-2">Free & Accessible</h3>
+            <p class="text-sm text-gray-700">No subscriptions, no paywalls. Everyone deserves access to tools that help them succeed.</p>
+          </div>
+          <div class="bg-green-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-2">Private & Secure</h3>
+            <p class="text-sm text-gray-700">Your data stays on your device. We never collect, track, or sell your information.</p>
+          </div>
+          <div class="bg-orange-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-2">Simple & Practical</h3>
+            <p class="text-sm text-gray-700">No jargon. No fluff. Just straightforward tools that actually work in real life.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-2">Honest & Transparent</h3>
+            <p class="text-sm text-gray-700">We're upfront about what our tools can and cannot do. No misleading promises.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Disclaimer</h2>
+        <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg text-sm text-gray-700">
+          <p class="mb-2">
+            <strong>Important:</strong> SolveSteps provides guidance and organizational tools only. Our tools are designed to help you organize your thoughts and create action plans, but they are not substitutes for professional advice.
+          </p>
+          <p class="mb-2">
+            For situations requiring professional guidance—such as mental health challenges, medical concerns, legal matters, or financial planning—please consult with a qualified professional.
+          </p>
+          <p>
+            SolveSteps is provided as-is without any warranties. Use these tools at your own discretion and judgment.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Questions?</h2>
+        <p class="text-gray-700 mb-4">
+          Have feedback, suggestions, or need help? We'd love to hear from you.
+        </p>
+        <a href="/contact" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          Get in Touch
+        </a>
+      </section>
+    </div>
+  </div>
 </Layout>

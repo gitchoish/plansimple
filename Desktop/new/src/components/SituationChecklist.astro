@@ -1,0 +1,126 @@
+---
+interface Props {
+  title: string;
+  steps?: string[];
+  situationId: string;
+}
+
+const { title, steps = [], situationId } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md p-6 my-6">
+  <div class="flex items-center justify-between mb-6">
+    <h3 class="text-lg font-semibold text-gray-800">Checklist: {title}</h3>
+    <button class="text-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded print:hidden" onclick="printChecklist()">
+      🖨️ Print
+    </button>
+  </div>
+  
+  <div id={`checklist-${situationId}`} class="space-y-3">
+    {steps.map((step, idx) => (
+      <div class="flex items-start gap-3">
+        <input 
+          type="checkbox" 
+          id={`step-${situationId}-${idx}`}
+          class="mt-1 w-5 h-5 text-blue-600 cursor-pointer"
+          onchange="saveProgress()" 
+        />
+        <label for={`step-${situationId}-${idx}`} class="flex-1 text-gray-700 leading-relaxed">
+          {step}
+        </label>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-6 pt-4 border-t border-gray-200">
+    <textarea 
+      id={`notes-${situationId}`}
+      class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Add your own notes or additional steps..."
+      rows="3"
+      onchange="saveProgress()"
+    ></textarea>
+  </div>
+
+  <div class="mt-4 flex gap-2 print:hidden">
+    <button 
+      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      onclick="addCustomStep()"
+    >
+      + Add Step
+    </button>
+    <button 
+      class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+      onclick="resetChecklist()"
+    >
+      Reset
+    </button>
+  </div>
+
+  <div id={`progress-${situationId}`} class="mt-4 text-sm text-gray-600 print:hidden">
+    Progress: <span id={`progress-count-${situationId}`}>0</span> / {steps.length} completed
+  </div>
+</div>
+
+<script define:vars={{ situationId, stepsCount: steps.length }}>
+  function saveProgress() {
+    const checkboxes = document.querySelectorAll(`#checklist-${situationId} input[type="checkbox"]`);
+    const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+    document.getElementById(`progress-count-${situationId}`).textContent = completed;
+    
+    // Save to localStorage
+    const state = {
+      checkedSteps: Array.from(checkboxes).map(cb => cb.checked),
+      notes: document.getElementById(`notes-${situationId}`).value,
+    };
+    localStorage.setItem(`solvesteps-${situationId}`, JSON.stringify(state));
+  }
+
+  function addCustomStep() {
+    const container = document.getElementById(`checklist-${situationId}`);
+    const newIdx = container.children.length;
+    const newStep = document.createElement('div');
+    newStep.className = 'flex items-start gap-3';
+    newStep.innerHTML = `
+      <input 
+        type="checkbox" 
+        class="mt-1 w-5 h-5 text-blue-600 cursor-pointer"
+        onchange="saveProgress()"
+      />
+      <input 
+        type="text" 
+        class="flex-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Enter custom step..."
+      />
+      <button class="text-red-600 hover:text-red-800" onclick="this.parentElement.remove(); saveProgress();">✕</button>
+    `;
+    container.appendChild(newStep);
+  }
+
+  function resetChecklist() {
+    if (confirm('Reset all progress for this checklist?')) {
+      document.querySelectorAll(`#checklist-${situationId} input[type="checkbox"]`).forEach(cb => cb.checked = false);
+      document.getElementById(`notes-${situationId}`).value = '';
+      localStorage.removeItem(`solvesteps-${situationId}`);
+      saveProgress();
+    }
+  }
+
+  function printChecklist() {
+    window.print();
+  }
+
+  // Load progress on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem(`solvesteps-${situationId}`);
+    if (saved) {
+      const state = JSON.parse(saved);
+      const checkboxes = document.querySelectorAll(`#checklist-${situationId} input[type="checkbox"]`);
+      state.checkedSteps.forEach((checked, idx) => {
+        if (checkboxes[idx]) checkboxes[idx].checked = checked;
+      });
+      document.getElementById(`notes-${situationId}`).value = state.notes;
+    }
+    saveProgress();
+  });
+</script>

@@ -1,0 +1,116 @@
+---
+interface Props {
+  situationId: string;
+}
+
+const { situationId } = Astro.props;
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+---
+
+<div class="bg-white rounded-lg shadow-md p-6 my-6">
+  <div class="flex items-center justify-between mb-6">
+    <h3 class="text-lg font-semibold text-gray-800">Weekly Action Planner</h3>
+    <button class="text-sm px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded print:hidden" onclick="printPlanner()">
+      🖨️ Print
+    </button>
+  </div>
+
+  <div class="mb-6 p-4 bg-blue-50 rounded">
+    <p class="text-sm font-semibold text-gray-700 mb-3">My 3 Focus Areas This Week:</p>
+    <div class="space-y-2">
+      {[1, 2, 3].map((i) => (
+        <input 
+          type="text"
+          class={`w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500`}
+          placeholder={`Focus area ${i}...`}
+          id={`focus-${situationId}-${i}`}
+          onchange="savePlannerData()"
+        />
+      ))}
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-7 gap-2">
+    {days.map((day) => (
+      <div class="border border-gray-200 rounded p-3 bg-gray-50">
+        <h4 class="font-semibold text-sm text-gray-700 mb-3">{day}</h4>
+        <textarea
+          id={`day-${situationId}-${day.toLowerCase()}`}
+          class="w-full text-sm p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-xs"
+          placeholder="Daily action..."
+          rows="4"
+          onchange="savePlannerData()"
+        ></textarea>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-4 flex gap-2 print:hidden">
+    <button 
+      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      onclick="downloadAsCSV()"
+    >
+      📥 Export as CSV
+    </button>
+    <button 
+      class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+      onclick="resetPlanner()"
+    >
+      Reset
+    </button>
+  </div>
+</div>
+
+<script define:vars={{ situationId }}>
+  function savePlannerData() {
+    const data = {
+      focuses: [1, 2, 3].map(i => document.getElementById(`focus-${situationId}-${i}`).value),
+      days: {}
+    };
+    ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].forEach(day => {
+      data.days[day] = document.getElementById(`day-${situationId}-${day}`).value;
+    });
+    localStorage.setItem(`planner-${situationId}`, JSON.stringify(data));
+  }
+
+  function resetPlanner() {
+    if (confirm('Reset the weekly planner?')) {
+      [1, 2, 3].forEach(i => document.getElementById(`focus-${situationId}-${i}`).value = '');
+      ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].forEach(day => {
+        document.getElementById(`day-${situationId}-${day}`).value = '';
+      });
+      localStorage.removeItem(`planner-${situationId}`);
+    }
+  }
+
+  function printPlanner() {
+    window.print();
+  }
+
+  function downloadAsCSV() {
+    const data = JSON.parse(localStorage.getItem(`planner-${situationId}`) || '{}');
+    let csv = 'Day,Action\\n';
+    ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].forEach(day => {
+      csv += `${day.charAt(0).toUpperCase() + day.slice(1)},"${(data.days[day] || '').replace(/"/g, '""')}"\\n`;
+    });
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'weekly-plan.csv';
+    a.click();
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem(`planner-${situationId}`);
+    if (saved) {
+      const data = JSON.parse(saved);
+      data.focuses.forEach((focus, i) => {
+        document.getElementById(`focus-${situationId}-${i + 1}`).value = focus;
+      });
+      Object.entries(data.days).forEach(([day, action]) => {
+        document.getElementById(`day-${situationId}-${day}`).value = action;
+      });
+    }
+  });
+</script>

@@ -1,12 +1,124 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
 ---
 
-<Layout>
-  <Navbar />
-  <main>
-    <h1>PlanSimple</h1>
-    <p>Your simple planning tool</p>
-  </main>
+<Layout title="SolveSteps - Interactive Tools for Real-Life Situations" description="Get step-by-step guidance to solve real-life situations with interactive tools. Checklists, planners, and routine builders that adapt to your needs.">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Solve Real-Life Situations,<br />Step by Step
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Free interactive tools that help you tackle everything from moving apartments to building better routines. Simple, practical, and guided by real solutions.
+      </p>
+      <a href="/situations" class="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+        Explore All Tools →
+      </a>
+    </div>
+
+    <!-- Featured Tools -->
+    <div class="grid md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
+        <div class="text-3xl mb-2">☑️</div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Checklist Builder</h3>
+        <p class="text-gray-600">Create and track checklists for any situation. Save progress and print when needed.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-600">
+        <div class="text-3xl mb-2">📅</div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Weekly Planner</h3>
+        <p class="text-gray-600">Plan your week with focus areas and daily actions. Export and share your plan.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-600">
+        <div class="text-3xl mb-2">🔄</div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Routine Builder</h3>
+        <p class="text-gray-600">Build custom routines with time tracking. Download and refine your ideal schedule.</p>
+      </div>
+    </div>
+
+    <!-- Situations Grid -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Common Situations We Help With</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/situations/moving-apartment" class="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:border-blue-400 border border-transparent transition">
+          <div class="text-lg font-semibold text-gray-900">🏠 Moving to a New Apartment</div>
+          <p class="text-sm text-gray-600 mt-2">Step-by-step checklist and timeline for a smooth move.</p>
+        </a>
+        <a href="/situations/weekly-cleaning-routine" class="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:border-blue-400 border border-transparent transition">
+          <div class="text-lg font-semibold text-gray-900">✨ Weekly Cleaning Routine</div>
+          <p class="text-sm text-gray-600 mt-2">Build a sustainable cleaning schedule that works for you.</p>
+        </a>
+        <a href="/situations/budget-reset" class="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:border-blue-400 border border-transparent transition">
+          <div class="text-lg font-semibold text-gray-900">💰 Budget Reset</div>
+          <p class="text-sm text-gray-600 mt-2">Get back on track with your finances in practical steps.</p>
+        </a>
+        <a href="/situations/exam-study-plan" class="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:border-blue-400 border border-transparent transition">
+          <div class="text-lg font-semibold text-gray-900">📚 Exam Study Plan</div>
+          <p class="text-sm text-gray-600 mt-2">Create an effective study schedule and stay focused.</p>
+        </a>
+        <a href="/situations/overwhelmed-week-planning" class="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:border-blue-400 border border-transparent transition">
+          <div class="text-lg font-semibold text-gray-900">🧠 Managing an Overwhelming Week</div>
+          <p class="text-sm text-gray-600 mt-2">Prioritize and organize when everything feels too much.</p>
+        </a>
+        <a href="/situations/morning-routine-builder" class="block p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:border-blue-400 border border-transparent transition">
+          <div class="text-lg font-semibold text-gray-900">🌅 Morning Routine Builder</div>
+          <p class="text-sm text-gray-600 mt-2">Design and time your ideal morning routine.</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="bg-blue-50 rounded-lg p-8 mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">How It Works</h2>
+      <ol class="space-y-4">
+        <li class="flex gap-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">1</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">Pick Your Situation</h3>
+            <p class="text-gray-600 text-sm">Choose from real-life scenarios you're dealing with right now.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">2</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">Use the Right Tool</h3>
+            <p class="text-gray-600 text-sm">Checklist, planner, or routine builder—we have the perfect tool for your situation.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">3</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">Save & Print</h3>
+            <p class="text-gray-600 text-sm">Your progress saves automatically. Print anytime you need a physical copy.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">4</span>
+          <div>
+            <h3 class="font-semibold text-gray-900">Get Stuff Done</h3>
+            <p class="text-gray-600 text-sm">Follow the guidance step-by-step and solve your situation with confidence.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Trust Section -->
+    <div class="bg-white rounded-lg border border-gray-200 p-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Use SolveSteps?</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div>
+          <div class="text-2xl mb-2">100% Free</div>
+          <p class="text-gray-600 text-sm">No paywall, no premium features. All tools available to everyone.</p>
+        </div>
+        <div>
+          <div class="text-2xl mb-2">Private & Secure</div>
+          <p class="text-gray-600 text-sm">Your data never leaves your device. We don't track or store anything.</p>
+        </div>
+        <div>
+          <div class="text-2xl mb-2">Practical & Simple</div>
+          <p class="text-gray-600 text-sm">No jargon. Just straightforward tools that actually work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>

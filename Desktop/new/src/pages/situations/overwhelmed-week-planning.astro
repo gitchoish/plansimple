@@ -1,0 +1,157 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WeeklyPlanner from '../../components/WeeklyPlanner.astro';
+---
+
+<Layout 
+  title="Managing an Overwhelming Week - SolveSteps" 
+  description="Prioritize and organize when everything feels too much. Practical strategies for overwhelming situations."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+      <a href="/situations" class="text-blue-600 hover:text-blue-700 text-sm font-semibold mb-4 inline-block">← Back to All Situations</a>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Managing an Overwhelming Week</h1>
+      <p class="text-xl text-gray-600">Prioritize and organize when everything feels too much.</p>
+    </div>
+
+    <div class="bg-red-50 p-6 rounded-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">When Everything Piles Up</h2>
+      <p class="text-gray-700">
+        Sometimes you have too many deadlines, emergencies, and commitments all hitting at once. The solution isn't to work harder—it's to get organized, prioritize ruthlessly, and focus on what actually matters this week. This week will pass. You can get through it.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 1: Brain Dump Everything</h2>
+        <p class="text-gray-700 mb-4">
+          Write down EVERYTHING you need to do this week. Don't worry about order or priority yet. Just get it out of your head and onto the page (or use the tool below). This relieves mental pressure immediately.
+        </p>
+        <div class="bg-blue-50 p-4 rounded text-sm text-gray-700">
+          Include: work deadlines, personal tasks, appointments, errands, family obligations, messages to return, anything on your mind.
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Step 2: Prioritize Using Weekly Planner</h2>
+        <p class="text-gray-700 mb-4">
+          Use this planner to organize your week. Identify your 3 most important focus areas and schedule key tasks daily. This creates a realistic plan instead of random scrambling.
+        </p>
+        <WeeklyPlanner situationId="overwhelming-week" />
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">The Priority Matrix</h2>
+        <p class="text-gray-700 mb-4">
+          Categorize each task using this matrix. Focus on important + urgent first, then important, then urgent, then everything else.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-red-50 p-4 border-2 border-red-300 rounded">
+            <h3 class="font-bold text-gray-900 mb-2">🔴 Important + Urgent</h3>
+            <p class="text-sm text-gray-700 mb-3">Do TODAY. No exceptions.</p>
+            <p class="text-xs text-gray-600">Examples: Deadline tomorrow, emergency, crisis</p>
+          </div>
+          <div class="bg-orange-50 p-4 border-2 border-orange-300 rounded">
+            <h3 class="font-bold text-gray-900 mb-2">🟠 Important, Not Urgent</h3>
+            <p class="text-sm text-gray-700 mb-3">Schedule specific time slots.</p>
+            <p class="text-xs text-gray-600">Examples: Project due in 2 weeks, planning, health</p>
+          </div>
+          <div class="bg-yellow-50 p-4 border-2 border-yellow-300 rounded">
+            <h3 class="font-bold text-gray-900 mb-2">🟡 Urgent, Not Important</h3>
+            <p class="text-sm text-gray-700 mb-3">Delegate or reduce time.</p>
+            <p class="text-xs text-gray-600">Examples: Some emails/messages, interruptions</p>
+          </div>
+          <div class="bg-gray-100 p-4 border-2 border-gray-300 rounded">
+            <h3 class="font-bold text-gray-900 mb-2">⚪ Neither Important Nor Urgent</h3>
+            <p class="text-sm text-gray-700 mb-3">Skip or postpone.</p>
+            <p class="text-xs text-gray-600">Examples: Social media, non-essential browsing</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Triage Strategy</h2>
+        <p class="text-gray-700 mb-4">
+          When you're truly overwhelmed, use this triage approach:
+        </p>
+        <div class="space-y-3">
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">1️⃣ Must Do Today</h3>
+            <p class="text-sm text-gray-700">3-5 items maximum. What can't wait until tomorrow?</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">2️⃣ Should Do This Week</h3>
+            <p class="text-sm text-gray-700">Break these into daily chunks. Schedule them.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">3️⃣ Can Wait Until Next Week</h3>
+            <p class="text-sm text-gray-700">Move these off your mental load. Write them down for later.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-blue-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">4️⃣ Can Delegate or Drop</h3>
+            <p class="text-sm text-gray-700">Ask for help. Say no. Get creative about reducing load.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Daily Tactics for Overwhelming Weeks</h2>
+        <div class="space-y-3">
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">🛑 Say No</h3>
+            <p class="text-sm text-gray-700">"I can't take that on this week" is a complete sentence. Protect your bandwidth.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">📵 Limit Communication</h3>
+            <p class="text-sm text-gray-700">Check email/messages 2-3 times daily, not constantly. This frees up mental energy.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">⏰ Time Box Tasks</h3>
+            <p class="text-sm text-gray-700">Set a timer: "Work on project X for 1 hour." Stop when timer goes off. More progress than constant stress.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">😴 Protect Sleep</h3>
+            <p class="text-sm text-gray-700">Don't sacrifice sleep to work more. Sleep makes you more efficient and less anxious.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">🚶 Take Breaks</h3>
+            <p class="text-sm text-gray-700">15 min walk, 10 min stretch. Breaks improve focus and reduce burnout.</p>
+          </div>
+          <div class="bg-white p-4 border-l-4 border-green-600 rounded">
+            <h3 class="font-semibold text-gray-900 mb-1">👥 Ask for Help</h3>
+            <p class="text-sm text-gray-700">Tell people you're overwhelmed. Most people will help if you ask specifically.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">What NOT to Do</h2>
+        <div class="space-y-2 text-gray-700">
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span>Don't try to do everything. Pick your top 3 priorities and own them.</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span>Don't work yourself into the ground. Exhaustion makes everything worse.</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span>Don't skip meals or stay up all night. Your body needs fuel to function.</span>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-red-600 font-bold">✗</span>
+            <span>Don't feel guilty. Overwhelming weeks happen. This is temporary.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-yellow-50 border border-yellow-200 p-6 rounded-lg">
+        <h3 class="font-semibold text-gray-900 mb-2">💭 Remember</h3>
+        <p class="text-sm text-gray-700">
+          This week WILL pass. You've gotten through hard weeks before. Focus on the essentials, get support, be kind to yourself, and trust that you can handle this. You're stronger than you think.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>
